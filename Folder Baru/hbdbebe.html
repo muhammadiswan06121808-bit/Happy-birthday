@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sayang 💕</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            syne: ['Syne', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+
+    /* ── Animations ── */
+    @keyframes fadeInUpBlur {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(15px) rotate(-5deg); }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.15); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+      60% { transform: scale(1); }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    @keyframes riseHeart {
+      0% { opacity: 0; transform: translateY(0) scale(0.5); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+    }
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(255, 0, 60, 0.3); box-shadow: 0 0 20px rgba(255, 0, 60, 0.1); }
+      50% { border-color: rgba(255, 0, 60, 0.6); box-shadow: 0 0 40px rgba(255, 0, 60, 0.2); }
+    }
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateX(-40px); filter: blur(6px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+    }
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(40px); filter: blur(6px); }
+      100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+    }
+    @keyframes candleFlicker {
+      0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+      25% { transform: scaleY(1.1) scaleX(0.9); opacity: 0.8; }
+      50% { transform: scaleY(0.9) scaleX(1.1); opacity: 1; }
+      75% { transform: scaleY(1.05) scaleX(0.95); opacity: 0.9; }
+    }
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 10px rgba(255,0,60,0.5), 0 0 40px rgba(255,0,60,0.2); }
+      50% { text-shadow: 0 0 20px rgba(255,0,60,0.8), 0 0 60px rgba(255,0,60,0.4), 0 0 100px rgba(255,0,60,0.2); }
+    }
+    @keyframes cakeReveal {
+      0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+      60% { transform: scale(1.05) rotate(2deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    @keyframes letterReveal {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes beam-drop {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(500%); }
+    }
+
+    .animate-fadeInUpBlur { animation: fadeInUpBlur 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-floatReverse { animation: floatReverse 7s ease-in-out infinite; }
+    .animate-heartbeat { animation: heartbeat 2s ease-in-out infinite; }
+    .animate-sparkle { animation: sparkle 3s ease-in-out infinite; }
+    .animate-borderGlow { animation: borderGlow 3s ease-in-out infinite; }
+    .animate-slideInLeft { animation: slideInLeft 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .animate-slideInRight { animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .animate-candleFlicker { animation: candleFlicker 0.8s ease-in-out infinite; }
+    .animate-glowPulse { animation: glowPulse 3s ease-in-out infinite; }
+    .animate-cakeReveal { animation: cakeReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .animate-marquee { animation: marquee 20s linear infinite; }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-1000 { animation-delay: 1s; }
+    .delay-1200 { animation-delay: 1.2s; }
+    .delay-1500 { animation-delay: 1.5s; }
+    .delay-2000 { animation-delay: 2s; }
+    .delay-2500 { animation-delay: 2.5s; }
+
+    /* ── Rising Hearts ── */
+    .rising-heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: riseHeart linear forwards;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Photo Frame ── */
+    .photo-frame {
+      position: relative;
+      border: 2px solid rgba(255, 0, 60, 0.3);
+      border-radius: 1rem;
+      overflow: hidden;
+      animation: borderGlow 3s ease-in-out infinite;
+    }
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,0,60,0.1), transparent, rgba(255,0,60,0.05));
+      z-index: 2;
+      pointer-events: none;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Grid Dots ── */
+    .dot-grid {
+      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
+    }
+
+    /* ── Letter Card ── */
+    .letter-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    .letter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,0,60,0.5), transparent);
+    }
+
+    /* ── Wish Item ── */
+    .wish-item {
+      border-left: 2px solid rgba(255,0,60,0.3);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .wish-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 0;
+      width: 8px;
+      height: 8px;
+      background: #ff003c;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255,0,60,0.5);
+    }
+
+    /* ── Candle ── */
+    .candle-flame {
+      width: 14px;
+      height: 20px;
+      background: radial-gradient(ellipse at bottom, #ffcc00, #ff6600, transparent);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: candleFlicker 0.8s ease-in-out infinite;
+      filter: blur(1px);
+    }
+    .candle-glow {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(255,150,0,0.3), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Marquee ── */
+    .marquee-track { display: flex; width: max-content; }
+
+    /* ── Button Glow ── */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(to right, transparent, rgba(255,0,60,0.3), transparent);
+      animation: beam-drop 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      z-index: -1;
+    }
+
+    /* ── Scroll ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,0,60,0.3); border-radius: 2px; }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,0,60,0.3);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 0.75rem 1.5rem;
+      z-index: 9999;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="font-inter">
+
+  <!-- ══════════ RISING HEARTS CONTAINER ══════════ -->
+  <div id="hearts-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- ══════════ BACKGROUND DOT GRID ══════════ -->
+  <div class="fixed inset-0 dot-grid opacity-30 pointer-events-none z-0"></div>
+
+  <!-- ══════════ AMBIENT GLOW ══════════ -->
+  <div class="fixed top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+       style="background: radial-gradient(circle, rgba(255,0,60,0.06) 0%, transparent 70%);"></div>
+
+  <!-- ══════════ TOAST ══════════ -->
+  <div id="toast" class="toast">
+    <p class="text-sm text-neutral-300 flex items-center gap-2">
+      <span class="iconify text-[#ff003c]" data-icon="mdi:heart" data-width="16"></span>
+      <span id="toast-msg">Love sent! 💕</span>
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--               SECTION 1: HERO              -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-6 z-10">
+
+    <!-- Top Bar -->
+    <div class="absolute top-0 left-0 right-0 flex items-center justify-between px-6 md:px-12 py-6 animate-fadeInUpBlur">
+      <span class="text-xs uppercase tracking-widest text-neutral-500">Special Day</span>
+      <span class="text-xs uppercase tracking-widest text-neutral-500" id="current-date"></span>
+    </div>
+
+    <!-- Sparkles -->
+    <div class="absolute top-20 left-[15%] text-[#ff003c] text-2xl animate-sparkle delay-200">✦</div>
+    <div class="absolute top-32 right-[20%] text-[#ff003c] text-lg animate-sparkle delay-800">✦</div>
+    <div class="absolute bottom-40 left-[25%] text-[#ff003c] text-xl animate-sparkle delay-500">✧</div>
+    <div class="absolute bottom-32 right-[15%] text-[#ff003c] text-sm animate-sparkle delay-1200">✦</div>
+    <div class="absolute top-1/3 left-[8%] text-pink-500/50 text-2xl animate-float delay-300">♡</div>
+    <div class="absolute top-1/4 right-[10%] text-pink-500/50 text-xl animate-floatReverse delay-600">♡</div>
+
+    <!-- Cake Icon -->
+    <div class="mb-8 animate-cakeReveal delay-300 relative">
+      <div class="candle-glow"></div>
+      <div class="flex flex-col items-center">
+        <div class="candle-flame mb-1"></div>
+        <div class="w-2 h-8 bg-gradient-to-b from-pink-300 to-pink-500 rounded-sm"></div>
+        <div class="text-5xl md:text-6xl mt-2">🎂</div>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="text-center max-w-4xl">
+      <p class="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 animate-fadeInUpBlur delay-200">
+        Selamat Ulang Tahun
+      </p>
+      <h1 class="font-syne font-700 text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-none mb-6 animate-fadeInUpBlur delay-300 animate-glowPulse"
+          style="color: #ff003c;">
+        Happy Birthday
+      </h1>
+      <h2 class="font-syne font-500 text-3xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-white animate-fadeInUpBlur delay-400">
+        Sayangku <span class="inline-block animate-heartbeat">❤️</span>
+      </h2>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 flex flex-col items-center gap-2 animate-fadeInUpBlur delay-2000">
+      <span class="text-xs uppercase tracking-widest text-neutral-600">Scroll</span>
+      <div class="w-px h-12 bg-gradient-to-b from-[#ff003c]/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--           SECTION 2: PHOTO & NAMA         -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 px-6 md:px-12 z-10">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+      <!-- Photo -->
+      <div class="animate-slideInLeft delay-200">
+        <div class="photo-frame aspect-[3/4] max-w-md mx-auto relative group">
+          <!--
+            ╔══════════════════════════════════════════╗
+            ║  GANTI FOTO DI SINI                      ║
+            ║  Ganti URL src di bawah ini dengan        ║
+            ║  link foto pacar kamu                     ║
+            ╚══════════════════════════════════════════╝
+          -->
+          
+           <img src="foto.jpg"  alt="Foto Pacar">
+           
+            class="transition-transform duration-700 group-hover:scale-105"
+          >
+          <!-- Overlay Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60 z-3"></div>
+          <!-- Corner Badge -->
+          <div class="absolute bottom-4 left-4 z-10 flex items-center gap-2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
+            <span class="iconify text-[#ff003c] animate-heartbeat" data-icon="mdi:heart" data-width="16"></span>
+            <span class="text-xs uppercase tracking-widest text-neutral-300">My Love</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="animate-slideInRight delay-400">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#ff003c] mb-4">Untukmu</p>
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  GANTI NAMA PACAR DI SINI                ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <h3 class="font-syne font-600 text-4xl md:text-5xl tracking-tight mb-6">Putri Zalsabila</h3>
+
+        <div class="space-y-4 text-neutral-400 text-sm leading-relaxed">
+          <p>
+            Hari ini adalah hari spesial, karena dunia dikaruniai seseorang yang membuat hidupku lebih bermakna.
+          </p>
+          <p>
+            Setiap detik bersamamu terasa seperti hadiah, dan aku bersyukur bisa menemani perjalanan hidupmu.
+          </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-4 mt-10">
+          <div class="text-center">
+            <!--
+              ╔══════════════════════════════════════════╗
+              ║  GANTI UMUR DI SINI                     ║
+              ╚══════════════════════════════════════════╝
+            -->
+            <p class="font-syne font-600 text-3xl text-white counter" data-target="21">0</p>
+            <p class="text-xs uppercase tracking-widest text-neutral-500 mt-1">Tahun</p>
+          </div>
+          <div class="text-center">
+            <!--
+              ╔══════════════════════════════════════════╗
+              ║  GANTI LAMA JADIAN DI SINI              ║
+              ╚══════════════════════════════════════════╝
+            -->
+            <p class="font-syne font-600 text-3xl text-white counter" data-target="200">0</p>
+            <p class="text-xs uppercase tracking-widest text-neutral-500 mt-1">Hari Bersama</p>
+          </div>
+          <div class="text-center">
+            <p class="font-syne font-600 text-3xl text-[#ff003c]">∞</p>
+            <p class="text-xs uppercase tracking-widest text-neutral-500 mt-1">Cintaku</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--          SECTION 3: MARQUEE TEXT          -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-8 z-10 overflow-hidden border-y border-white/5">
+    <div class="overflow-hidden">
+      <div class="marquee-track animate-marquee">
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-white/5 whitespace-nowrap mx-8">
+          HAPPY BIRTHDAY
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-[#ff003c]/10 whitespace-nowrap mx-8">
+          ❤️
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-white/5 whitespace-nowrap mx-8">
+          SAYANGKU
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-[#ff003c]/10 whitespace-nowrap mx-8">
+          ✦
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-white/5 whitespace-nowrap mx-8">
+          HAPPY BIRTHDAY
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-[#ff003c]/10 whitespace-nowrap mx-8">
+          ❤️
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-white/5 whitespace-nowrap mx-8">
+          SAYANGKU
+        </span>
+        <span class="font-syne font-700 text-5xl md:text-7xl tracking-tighter text-[#ff003c]/10 whitespace-nowrap mx-8">
+          ✦
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--         SECTION 4: WISHES / DOA           -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 px-6 md:px-12 z-10">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="text-center mb-16 animate-fadeInUpBlur">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#ff003c] mb-4">Doa & Harapan</p>
+        <h2 class="font-syne font-600 text-3xl md:text-5xl tracking-tight">
+          Semoga di umur yang baru<span class="text-[#ff003c]">...</span>
+        </h2>
+      </div>
+
+      <div class="space-y-8" id="wishes-container">
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  EDIT DOA / HARAPAN DI SINI             ║
+          ║  Tambah/ubah/hapus item wish-item        ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <div class="wish-item animate-fadeInUpBlur delay-100">
+          <h4 class="font-syne font-500 text-lg text-white mb-2">Kesehatan Selalu</h4>
+          <p class="text-neutral-400 text-sm leading-relaxed">Semoga kamu selalu diberikan kesehatan, supaya kita bisa terus bikin kenangan indah bersama.</p>
+        </div>
+
+        <div class="wish-item animate-fadeInUpBlur delay-300">
+          <h4 class="font-syne font-500 text-lg text-white mb-2">Semua Impian Terwujud</h4>
+          <p class="text-neutral-400 text-sm leading-relaxed">Aku percaya kamu bisa mencapai semua yang kamu impikan. Dan aku akan selalu ada di sini untuk mendukungmu.</p>
+        </div>
+
+        <div class="wish-item animate-fadeInUpBlur delay-500">
+          <h4 class="font-syne font-500 text-lg text-white mb-2">Kebahagiaan Tanpa Batas</h4>
+          <p class="text-neutral-400 text-sm leading-relaxed">Semoga setiap harimu dipenuhi tawa dan kebahagiaan. Kamu layak mendapatkan semua keindahan dunia.</p>
+        </div>
+
+        <div class="wish-item animate-fadeInUpBlur delay-700">
+          <h4 class="font-syne font-500 text-lg text-white mb-2">Kita Selalu Bersama</h4>
+          <p class="text-neutral-400 text-sm leading-relaxed">Doa terbesarku: semoga kita terus bersama, melewati semua suka dan duka, sampai tua bersama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--       SECTION 5: PERSONAL LETTER           -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 px-6 md:px-12 z-10">
+    <div class="max-w-2xl mx-auto">
+      <div class="letter-card rounded-2xl p-8 md:p-12 animate-fadeInUpBlur">
+
+        <div class="flex items-center gap-3 mb-8">
+          <span class="iconify text-[#ff003c]" data-icon="mdi:email-heart-outline" data-width="24"></span>
+          <p class="text-xs uppercase tracking-[0.3em] text-neutral-500">Surat Untukmu</p>
+        </div>
+
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  EDIT SURAT / PESAN DI SINI             ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <div class="space-y-5 text-neutral-300 text-sm leading-relaxed">
+          <p>Sayangku,</p>
+          <p>
+            Gak terasa ya, udah sekian lama kita jalanin ini bareng-bareng. Dari yang awalnya saling cuek, sampai sekarang gak bisa jauh satu sama lain. Hehe.
+          </p>
+          <p>
+            Makasih ya udah jadi tempat pulangku. Makasih udah sabar menghadapi aku yang kadang menyebalkan. Makasih udah selalu bikin aku ngerasa spesial.
+          </p>
+          <p>
+            Di umur yang baru ini, aku mau kamu tau bahwa aku bangga banget sama kamu. Bangga dengan pencapaianmu, dengan cara kamu berjuang, dan dengan ketulusan hatimu.
+          </p>
+          <p>
+            Aku gak janji bisa kasih kamu segalanya, tapi aku janji akan selalu berusaha jadi yang terbaik buat kamu. Aku sayang kamu, lebih dari yang bisa diungkapkan kata-kata.
+          </p>
+          <p class="text-white font-medium">
+            Selamat ulang tahun, cinta aku. 🤍
+          </p>
+          <p class="text-right text-neutral-500">
+            — Dari yang paling sayang kamu
+          </p>
+        </div>
+
+        <!-- Stamp -->
+        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-neutral-600">with love</span>
+          <div class="w-12 h-12 rounded-full border border-[#ff003c]/30 flex items-center justify-center animate-heartbeat">
+            <span class="iconify text-[#ff003c]" data-icon="mdi:heart" data-width="20"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--      SECTION 6: PHOTO GALLERY             -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 px-6 md:px-12 z-10">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-16 animate-fadeInUpBlur">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#ff003c] mb-4">Momen Kita</p>
+        <h2 class="font-syne font-600 text-3xl md:text-5xl tracking-tight">
+          Kenangan Terindah<span class="text-[#ff003c]">.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  GANTI FOTO-FOTO KENANGAN DI SINI       ║
+          ║  Ganti URL src pada setiap img tag       ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-100">
+          <img src="image.png" alt="1png"
+               class="transition-transform duration-700 group-hover:scale-110">
+        </div>
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-200">
+          <img src="image (1).png" alt="2png"
+               class="transition-transform duration-700 group-hover:scale-110">
+        </div>
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-300">
+          <img src="image (2).png" alt="3png"
+               class="transition-transform duration-700 group-hover:scale-110">
+        </div>
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-400">
+          <img src="image (3).png" alt="4png"
+               class="transition-transform duration-700 group-hover:scale-110">
+        </div>
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-500">
+          <img src="image (4).png" alt="5png"
+               class="transition-transform duration-700 group-hover:scale-110">
+        </div>
+        <div class="photo-frame aspect-square group animate-fadeInUpBlur delay-600 relative">
+          <img src="image (5).png" alt="6png"
+               class="transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black/60 flex items-center justify-center z-10">
+            <span class="text-white font-syne font-600 text-2xl">+∞</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--        SECTION 7: CTA / BUTTON            -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 px-6 md:px-12 z-10">
+    <div class="max-w-2xl mx-auto text-center animate-fadeInUpBlur">
+
+      <div class="text-6xl mb-6 animate-heartbeat">💝</div>
+
+      <h2 class="font-syne font-600 text-3xl md:text-5xl tracking-tight mb-6">
+        Tap buat kirim cinta<span class="text-[#ff003c]">!</span>
+      </h2>
+
+      <p class="text-neutral-400 text-sm mb-10">
+        Setiap tap mengirim sejuta cinta untukmu
+      </p>
+
+      <button id="love-btn"
+              class="btn-glow inline-flex items-center gap-3 bg-[#ff003c] hover:bg-[#cc0030] text-white text-xs uppercase tracking-widest font-medium px-10 py-4 rounded-full transition-all duration-300 active:scale-95">
+        <span class="iconify" data-icon="mdi:heart" data-width="18"></span>
+        Kirim Cinta
+        <span class="iconify" data-icon="mdi:heart" data-width="18"></span>
+      </button>
+
+      <div class="mt-6">
+        <p class="text-neutral-600 text-xs">
+          Sudah dikirim: <span id="love-count" class="text-[#ff003c] font-medium">0</span> kali 💕
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--            SECTION 8: FOOTER              -->
+  <!-- ══════════════════════════════════════════ -->
+  <footer class="relative py-16 px-6 md:px-12 z-10 border-t border-white/5">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-syne font-600 text-2xl md:text-3xl tracking-tight mb-3 animate-glowPulse" style="color: #ff003c;">
+        Happy Birthday, Sayangku
+      </p>
+      <p class="text-neutral-500 text-xs uppercase tracking-widest">
+        Made with <span class="iconify inline-block text-[#ff003c] animate-heartbeat" data-icon="mdi:heart" data-width="12"></span> just for you
+      </p>
+      <!--
+        ╔══════════════════════════════════════════╗
+        ║  GANTI TANGGAL DI SINI                   ║
+        ╚══════════════════════════════════════════╝
+      -->
+      <p class="text-neutral-700 text-xs mt-4">2025</p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════ JAVASCRIPT ══════════ -->
+  <script>
+    // ── Current Date ──
+    const dateEl = document.getElementById('current-date');
+    const now = new Date();
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    dateEl.textContent = now.toLocaleDateString('id-ID', options);
+
+    // ── Rising Hearts ──
+    const heartsContainer = document.getElementById('hearts-container');
+    const heartEmojis = ['❤️', '💕', '💗', '💖', '♥️', '🩷', '🤍'];
+
+    function createRisingHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'rising-heart';
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 16 + 12) + 'px';
+      heart.style.animationDuration = (Math.random() * 6 + 6) + 's';
+      heart.style.opacity = Math.random() * 0.6 + 0.2;
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 12000);
+    }
+
+    // Create hearts periodically
+    setInterval(createRisingHeart, 2000);
+    // Initial burst
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createRisingHeart, i * 400);
+    }
+
+    // ── Counter Animation ──
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const duration = 2000;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(updateCounter);
+            else el.textContent = target;
+          }
+
+          requestAnimationFrame(updateCounter);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // ── Scroll Reveal ──
+    const revealElements = document.querySelectorAll('.animate-fadeInUpBlur, .animate-slideInLeft, .animate-slideInRight');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => {
+      el.style.animationPlayState = 'paused';
+      // Don't pause hero elements
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.style.animationPlayState = 'running';
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+
+    // ── Love Button ──
+    const loveBtn = document.getElementById('love-btn');
+    const loveCount = document.getElementById('love-count');
+    let count = 0;
+
+    loveBtn.addEventListener('click', () => {
+      count++;
+      loveCount.textContent = count;
+
+      // Burst hearts
+      for (let i = 0; i < 8; i++) {
+        setTimeout(createRisingHeart, i * 100);
+      }
+
+      // Toast
+      const messages = [
+        'Cinta terkirim! 💕',
+        'Sampai ke hatinya! 💗',
+        'Love delivered! 💌',
+        'Sejuta cinta untukmu! 🖤',
+        'Cintaku melimpah! 💖',
+        'Bangkitkan hatinya! 🩷',
+      ];
+      showToast(messages[Math.floor(Math.random() * messages.length)]);
+
+      // Button pulse effect
+      loveBtn.style.transform = 'scale(0.95)';
+      setTimeout(() => loveBtn.style.transform = 'scale(1)', 150);
+    });
+
+    // ── Toast ──
+    const toastEl = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-msg');
+    let toastTimeout;
+
+    function showToast(msg) {
+      clearTimeout(toastTimeout);
+      toastMsg.textContent = msg;
+      toastEl.classList.add('show');
+      toastTimeout = setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
